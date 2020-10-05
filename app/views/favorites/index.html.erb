@@ -1,6 +1,6 @@
 <div class="topic-index-wrapper">
   <div class="container">
-    <% @topics.each do |topic| %>
+    <% @favorite_topics.each do |topic| %>
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
           <div class="topic-index-single">
@@ -24,10 +24,11 @@
             <% end %>
             <br>
             
-            
             <% topic.comments.each do |comment| %>
               <%= comment.comment_content %>
             <% end %>
+          
+            </p>
           </div>
         </div>
       </div>

@@ -1,15 +1,7 @@
-private
- def login_check
-   unless logged_in?
-    flash[:alert] = "ログインしてください"
-    redirect_to root_path
-   end
- end
-
 class TopicsController < ApplicationController
-  before_action :login_check, only: [:new]
   def index
-    @topics = Topic.all
+    @topics = Topic.all.includes(:favorite_users)
+    @comment = Comment.new
   end
   
   def new
